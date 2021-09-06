@@ -88,28 +88,14 @@ if url != '':
         tag_list.append('{}'.format(tag))
     tags = ''.join(tag_list)
 
-    if 'BREAKING' in article_title:
-        default_text = '''
-𝘽𝙍𝙀𝘼𝙆𝙄𝙉𝙂 𝙃𝙀𝘼𝘿𝙇𝙄𝙉𝙀 🚨
+    default_text = '''
+➡️ {}
+———
+🔻
 {}
 
-𝙎𝙐𝙈𝙈𝘼𝙍𝙔  ❝❞
 {}
-
-𝙎𝙊𝙐𝙍𝘾𝙀  ↴
-{}
-                                        '''.format(article_title, summary, source_url)
-    else:
-        default_text = '''
-𝙃𝙀𝘼𝘿𝙇𝙄𝙉𝙀  🎙
-{}
-
-𝙎𝙐𝙈𝙈𝘼𝙍𝙔  ❝❞
-{}
-
-𝙎𝙊𝙐𝙍𝘾𝙀  ↴
-{}
-                                '''.format(article_title, summary, source_url)
+            '''.format(article_title, summary, source_url)
 
     with st.spinner("Formatting code ..."):
         st.code(default_text, language='html')
