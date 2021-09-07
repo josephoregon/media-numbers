@@ -6,11 +6,14 @@ import streamlit as st
 import heapq
 import nltk
 import re
+import pyperclip
+from PIL import Image
 from newspaper import Article
 
+im = Image.open('assets/favicon.png')
 st.set_page_config(
-    page_title='News Analytics',
-    page_icon='📰'
+    page_title='UngaTheGreat',
+    page_icon=im,
 )
 
 st.title("MEDIA NUMBERS")
@@ -22,7 +25,7 @@ st.markdown("---")
 nltk.download('punkt')
 nltk.download('stopwords')
 
-sentence_length = st.selectbox('Summary Sentence Count:', [1, 2, 3, 4, 5, 6], 1)
+sentence_length = 2  # st.selectbox('Summary Sentence Count:', [1, 2, 3, 4, 5, 6], 1)
 
 url = st.text_input("Paste Article URL Below")
 
@@ -90,12 +93,15 @@ if url != '':
 
     default_text = '''
 ➡️ {}
-———
+
+{}
 🔻
 {}
 
-{}
+@UngaTheGreat
             '''.format(article_title, summary, source_url)
+
+    pyperclip.copy(default_text)
 
     with st.spinner("Formatting code ..."):
         st.code(default_text, language='html')

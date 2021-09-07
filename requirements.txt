@@ -1,9 +1,12 @@
-streamlit
+streamlit~=0.81.1
 pandas
 spacy
 newspaper3k
-nltk
+nltk~=3.6.2
 isort
 autoflake
 autopep8
 black
+pyperclip~=1.8.2
+pillow~=7.2.0
+feedparser~=5.2.1
